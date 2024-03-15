@@ -78,6 +78,8 @@ test('POST /movies/:id/actors debe agregar un actor existente a una película', 
       expect.objectContaining({ id: actorId }),
     ]),
   );
+  // Elimino el actor de la base de datos para no llenarla de registros innecesarios
+  await request(app).delete(`/actors/${actorId}`);
 });
 
 test('POST /movies/:id/directors debe agregar un director existente a una película', async () => {
@@ -108,6 +110,8 @@ test('POST /movies/:id/directors debe agregar un director existente a una pelíc
       expect.objectContaining({ id: directorId }),
     ]),
   );
+  // Elimino el director de la base de datos para no llenarla de registros innecesarios
+  await request(app).delete(`/directors/${directorId}`);
 });
 
 test('POST /movies/:id/genres debe agregar un género existente a una película', async () => {
@@ -134,4 +138,6 @@ test('POST /movies/:id/genres debe agregar un género existente a una película'
       expect.objectContaining({ id: genreId }),
     ]),
   );
+  // Elimino el género de la base de datos para no llenarla de registros innecesarios
+  await request(app).delete(`/genres/${genreId}`);
 });

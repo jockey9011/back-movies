@@ -22,6 +22,7 @@ test('POST /actors debe crear un nuevo genero', async () => {
   expect(response.status).toBe(201);
   expect(response.body.id).toBeDefined();
   expect(response.body.firstName).toBe(newActor.firstName);
+  
 });
 
 test('PUT /actors/:id debe actualizar un actor existente', async () => {
